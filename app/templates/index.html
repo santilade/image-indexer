@@ -1,0 +1,28 @@
+{% extends "bootstrap/base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>{{imgs_path}}</h2>
+    <ol class="list-group list-group-numbered">
+        {% for result in results %}
+        <li class="list-group-item">
+            <div class="card" style="width: 500px;">
+                <div class="row no-gutters">
+                    <div class="col-sm-5">
+                        <img class="card-img" src="file://{{result['src']}}">
+                    </div>
+                    <div class="col-sm-7">
+                        <div class="card-body">
+                            <h4 class="card-title">Title: {{result["title"]}}</h4>
+                            <p class="card-text">Size: {{result["size"]}}</p>
+                            <p class="card-text">Format: {{result["format"]}}</p>
+                            <p class="card-text">md5sum: {{result["md5sum"]}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        {% endfor %}
+    </ol>
+</div>
+{% endblock %}
